@@ -3,22 +3,16 @@
     <div class="lecture-detail-container01">
       <div class="lecture-detail-container02">
         <div class="lecture-detail-title" @click="open = !open">
-          <span class="lecture-detail-text"> Lecture {{ lecture }}</span>
+          <span class="lecture-detail-text">
+            Lecture {{ lecture }} {{ lectureTitle }}</span
+          >
           <span class="lecture-detail-text01">{{ sign }}</span>
         </div>
       </div>
       <div class="lecture-detail-container03" v-show="open">
         <div class="lecture-detail-container04">
-          <span class="lecture-detail-text02">{{ text }}</span>
-          <div class="lecture-detail-container05">
-            <span>{{ text1 }}</span>
-            <span class="lecture-detail-text04">{{ text3 }}</span>
-          </div>
-          <span class="lecture-detail-text05">{{ text2 }}</span>
-        </div>
-        <div class="lecture-detail-container06">
           <a
-            href="https://www.youtube.com"
+            :href="mylink"
             target="_blank"
             rel="noreferrer noopener"
             class="lecture-detail-link"
@@ -35,8 +29,15 @@
               <span class="lecture-detail-text06">{{ text4 }}</span>
             </div>
           </a>
+          <div class="lecture-detail-container05">
+            <span>{{ text1 }}</span>
+          </div>
+          <span class="lecture-detail-text05">{{ text2 }}</span>
+        </div>
+        <div class="lecture-detail-container06">
+          <span class="lecture-detail-text02">{{ duration }}</span>
           <a
-            href="https://www.google.com"
+            href="mylink"
             target="_blank"
             rel="noreferrer noopener"
             class="lecture-detail-link1"
@@ -50,23 +51,28 @@
                   d="M731.429 768c0-20-16.571-36.571-36.571-36.571s-36.571 16.571-36.571 36.571 16.571 36.571 36.571 36.571 36.571-16.571 36.571-36.571zM877.714 768c0-20-16.571-36.571-36.571-36.571s-36.571 16.571-36.571 36.571 16.571 36.571 36.571 36.571 36.571-16.571 36.571-36.571zM950.857 640v182.857c0 30.286-24.571 54.857-54.857 54.857h-841.143c-30.286 0-54.857-24.571-54.857-54.857v-182.857c0-30.286 24.571-54.857 54.857-54.857h265.714l77.143 77.714c21.143 20.571 48.571 32 77.714 32s56.571-11.429 77.714-32l77.714-77.714h265.143c30.286 0 54.857 24.571 54.857 54.857zM765.143 314.857c5.714 13.714 2.857 29.714-8 40l-256 256c-6.857 7.429-16.571 10.857-25.714 10.857s-18.857-3.429-25.714-10.857l-256-256c-10.857-10.286-13.714-26.286-8-40 5.714-13.143 18.857-22.286 33.714-22.286h146.286v-256c0-20 16.571-36.571 36.571-36.571h146.286c20 0 36.571 16.571 36.571 36.571v256h146.286c14.857 0 28 9.143 33.714 22.286z"
                 ></path>
               </svg>
-              <span class="lecture-detail-text07">{{ text5 }}</span>
             </div>
           </a>
           <div class="lecture-detail-duration">
-            <span class="lecture-detail-text08">{{ duration }}</span>
+            <button class="thqButton lecture-detail-button">
+              {{ button4 }}
+            </button>
+            <button class="thqButton lecture-detail-button">
+              {{ button5 }}
+            </button>
           </div>
         </div>
-        <div class="lecture-detail-container07">
-          <span class="lecture-detail-text09">{{ topics }}</span>
-        </div>
+
         <div class="lecture-detail-container08">
           <span class="lecture-detail-text10">{{ text6 }}</span>
         </div>
         <div class="lecture-detail-container09">
           <button class="thqButton lecture-detail-button">{{ button }}</button>
-          <button class="thqButton lecture-detail-button1">
-            {{ button1 }}
+          <button class="thqButton lecture-detail-button">{{ button1 }}</button>
+          <button class="thqButton lecture-detail-button">{{ button2 }}</button>
+
+          <button class="thqButton lecture-detail-button">
+            {{ button3 }}
           </button>
         </div>
       </div>
@@ -83,58 +89,71 @@ export default {
     };
   },
   props: {
-    lecture: {
+    mylink: {
       type: String,
+      default: "www.google.com",
+    },
+    lectureTitle: {
+      type: String,
+      default: "",
+    },
+    lecture: {
       default: "Lecture 1",
     },
-    button1: {
-      type: String,
-      default: "PDF",
-    },
+
     text2: {
       type: String,
-      default: "Duration:",
+      default: "Transcript",
     },
     text4: {
       type: String,
       default: "Watch now!",
     },
-    text3: {
-      type: String,
-      default: "Right Click, and Save As",
-    },
+
     text: {
       type: String,
       default: "Watch Online:",
     },
     text6: {
       type: String,
-      default: "Transcripts",
+      default: "Practice",
     },
     text1: {
       type: String,
-      default: "Download:",
+      default: "Download",
     },
     sign: {
       type: String,
       default: "+",
     },
-    topics: {
-      type: String,
-      default:
-        "Topics: The Motivation & Applications of Machine Learning, The Logistics of the Class, The Definition of Machine Learning, The Overview of Supervised Learning, The Overview of Learning Theory, The Overview of Unsupervised Learning, The Overview of Reinforcement Learning",
-    },
+
     button: {
       type: String,
+      default: "Datadesk",
+    },
+    button1: {
+      type: String,
+      default: "Excel",
+    },
+    button2: {
+      type: String,
+      default: "R",
+    },
+    button3: {
+      type: String,
+      default: "Python",
+    },
+    button4: {
+      type: String,
       default: "HTML",
+    },
+    button5: {
+      type: String,
+      default: "PDF",
     },
     duration: {
       type: String,
       default: "1 hr 9 min",
-    },
-    text5: {
-      type: String,
-      default: "Download",
     },
   },
 };
@@ -208,7 +227,7 @@ export default {
   background-color: var(--dl-color-gray-900);
 }
 .lecture-detail-text02 {
-  margin-left: var(--dl-space-space-doubleunit);
+  margin-left: 5rem;
 }
 .lecture-detail-container05 {
   flex: 0 0 auto;
@@ -274,7 +293,6 @@ export default {
 .lecture-detail-icon2 {
   width: 24px;
   height: 24px;
-  padding-right: var(--dl-space-space-halfunit);
 }
 .lecture-detail-text07 {
   padding-left: var(--dl-space-space-halfunit);
@@ -325,12 +343,9 @@ export default {
   border-color: no;
   margin-right: var(--dl-space-space-unit);
   background-color: var(--dl-color-success-700);
+  min-width: 4rem;
 }
-.lecture-detail-button1 {
-  color: var(--dl-color-gray-white);
-  margin-left: var(--dl-space-space-unit);
-  background-color: var(--dl-color-success-700);
-}
+
 a {
   text-decoration: none;
 }
